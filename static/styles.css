@@ -235,9 +235,9 @@ footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--m
 .empty-cell { color: var(--muted); text-align: center; padding: 28px !important; }
 .belt.mini { display: inline-block; width: 28px; height: 8px; vertical-align: middle; margin-right: 6px; }
 
-.home.has-ads { padding-right: 196px; padding-left: 0; }
+.home.has-ads { padding-left: 196px; padding-right: 0; }
 .home .ads-rail {
-  position: fixed; right: 12px; left: auto; top: 92px; bottom: auto;
+  position: fixed; left: 12px; right: auto; top: 92px; bottom: auto;
   width: 168px; padding: 0; display: flex; flex-direction: column; gap: 12px;
   background: transparent; border: 0; z-index: 30;
 }
