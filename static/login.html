@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — Actus Verum Team</title>
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" alt="Actus Verum Team" />
+        <span class="logo-type">Actus Verum Team<small>Área administrativa</small></span>
+      </a>
+      <nav>
+        <a href="/">Início</a>
+        <a class="active" href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap section login-wrap">
+    <form class="card stack" id="login">
+      <h2>Entrar no painel</h2>
+      <p class="hint">Somente administradores cadastram e removem alunos.</p>
+      <label>Usuário
+        <input name="usuario" required autocomplete="username" />
+      </label>
+      <label>Senha
+        <input name="senha" type="password" required autocomplete="current-password" />
+      </label>
+      <button class="btn" type="submit">Entrar</button>
+      <div id="msg"></div>
+    </form>
+  </main>
+  <script src="/app.js"></script>
+  <script>LoginPage.init();</script>
+  <script src="/mobile.js"></script>
+</body>
+</html>

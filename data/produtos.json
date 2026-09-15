@@ -1,0 +1,44 @@
+[
+  {
+    "id": "kimono-adulto",
+    "nome": "Kimono Actus Verum",
+    "preco": 289.90,
+    "descricao": "Kimono de treino com patch oficial da equipe.",
+    "categoria": "Kimono"
+  },
+  {
+    "id": "rashguard",
+    "nome": "Rashguard Lobo",
+    "preco": 129.90,
+    "descricao": "Proteção e identidade no no-gi. Tecido compressão.",
+    "categoria": "No-Gi"
+  },
+  {
+    "id": "camiseta",
+    "nome": "Camiseta Team",
+    "preco": 79.90,
+    "descricao": "Camiseta preta com o emblema Actus Verum Team.",
+    "categoria": "Casual"
+  },
+  {
+    "id": "short",
+    "nome": "Fight Shorts",
+    "preco": 119.90,
+    "descricao": "Short de competição e treino no-gi.",
+    "categoria": "No-Gi"
+  },
+  {
+    "id": "patch",
+    "nome": "Patch oficial",
+    "preco": 24.90,
+    "descricao": "Emblema para costurar no kimono.",
+    "categoria": "Acessório"
+  },
+  {
+    "id": "squeeze",
+    "nome": "Squeeze Actus",
+    "preco": 39.90,
+    "descricao": "Garrafa para treino com logo da equipe.",
+    "categoria": "Acessório"
+  }
+]

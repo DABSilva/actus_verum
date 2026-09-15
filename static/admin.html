@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Painel admin — Actus Verum Team</title>
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" alt="Actus Verum Team" />
+        <span class="logo-type">Actus Verum Team<small>Administrador</small></span>
+      </a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/horarios.html">Horário de treinos</a>
+        <a href="/alunos.html">Alunos</a>
+        <a href="/ranking.html">Ranking</a>
+        <a class="active" href="/admin.html">Admin</a>
+        <a href="#" id="sair">Sair</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap section">
+    <nav class="submenu">
+      <a class="active" href="/admin.html">Cadastro</a>
+      <a href="/admin-lista.html">Lista de alunos</a>
+      <a href="/admin-horarios.html">Horários</a>
+    </nav>
+    <h2>Cadastro de alunos</h2>
+    <p class="hint">Área restrita. O nome completo é o que o site usa para buscar o ranking no CIJJ. Os outros dados ficam só no painel.</p>
+
+    <div class="grid" style="grid-template-columns: minmax(280px, 1fr) 1.2fr; gap: 24px;">
+      <form class="card stack" id="form">
+        <input type="hidden" name="aluno_id" value="" />
+        <label>Nome completo
+          <input name="nome" required placeholder="Ex.: Oliver Bueno Silva" />
+        </label>
+        <label>CPF
+          <input name="cpf" placeholder="000.000.000-00" />
+        </label>
+        <div class="row2">
+          <label>Idade
+            <input name="idade" placeholder="Ex.: 8" />
+          </label>
+          <label>Peso
+            <input name="peso" placeholder="Ex.: 24 kg" />
+          </label>
+        </div>
+        <label>Cor da faixa
+          <select name="faixa">
+            <option>Branca</option>
+            <option>Cinza</option>
+            <option>Amarela</option>
+            <option>Laranja</option>
+            <option>Verde</option>
+            <option>Azul</option>
+            <option>Roxa</option>
+            <option>Marrom</option>
+            <option>Preta</option>
+            <option>Graduado</option>
+          </select>
+        </label>
+        <button class="btn" type="submit" id="btn-salvar">Cadastrar aluno</button>
+        <button class="btn ghost" type="button" id="btn-cancelar" hidden>Cancelar edição</button>
+        <div id="msg"></div>
+      </form>
+      <div class="list" id="lista"></div>
+    </div>
+
+  </main>
+  <script src="/app.js"></script>
+  <script>AlunosPage.init();</script>
+  <script src="/mobile.js"></script>
+</body>
+</html>

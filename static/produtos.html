@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produtos — Actus Verum Team</title>
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" alt="Actus Verum Team" />
+        <span class="logo-type">Actus Verum Team<small>Brazilian Jiu-Jitsu</small></span>
+      </a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/fotos.html">Fotos</a>
+        <a class="active" href="/produtos.html">Produtos</a>
+        <a href="/horarios.html">Horário de treinos</a>
+        <a href="/alunos.html">Alunos</a>
+        <a href="/ranking.html">Ranking</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap section">
+    <h2>Produtos da academia</h2>
+    <p class="hint">Peças oficiais da Actus Verum Team. O pedido é enviado pelo WhatsApp.</p>
+    <div class="grid cards" id="loja"></div>
+  </main>
+  <script src="/app.js"></script>
+  <script>ProdutosPage.init();</script>
+  <script src="/mobile.js"></script>
+</body>
+</html>
