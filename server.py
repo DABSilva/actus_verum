@@ -599,7 +599,7 @@ def main() -> None:
     DATA.mkdir(parents=True, exist_ok=True)
     if not ALUNOS_FILE.exists():
         save_alunos([])
-    port = 8080
+    port = int(__import__("os").environ.get("PORT", "8080"))
     ip = lan_ip()
     print(f"No computador:  http://127.0.0.1:{port}")
     if ip:
