@@ -177,24 +177,43 @@ def save_horarios(itens: list) -> None:
     HORARIOS_FILE.write_text(json.dumps(itens, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def new_session() -> str:
-    import secrets
+def _session_secret() -> bytes:
+    return (__import__("os").environ.get("ADMIN_SECRET") or "actus-verum-admin-secret").encode("utf-8")
 
-    token = secrets.token_hex(16)
+
+def new_session() -> str:
+    import hmac
+    import hashlib
+
+    exp = str(int(time.time()) + SESSION_TTL)
+    payload = f"admin.{exp}"
+    sig = hmac.new(_session_secret(), payload.encode("utf-8"), hashlib.sha256).hexdigest()
+    token = f"{payload}.{sig}"
     SESSIONS[token] = time.time() + SESSION_TTL
     return token
 
 
 def valid_session(token: str | None) -> bool:
+    import hmac
+    import hashlib
+
     if not token:
         return False
-    exp = SESSIONS.get(token)
-    if not exp:
+    if SESSIONS.get(token) and SESSIONS[token] >= time.time():
+        return True
+    parts = token.split(".")
+    if len(parts) != 3:
         return False
-    if exp < time.time():
-        SESSIONS.pop(token, None)
+    payload = f"{parts[0]}.{parts[1]}"
+    sig = parts[2]
+    expected = hmac.new(_session_secret(), payload.encode("utf-8"), hashlib.sha256).hexdigest()
+    if not hmac.compare_digest(sig, expected):
         return False
-    return True
+    try:
+        exp = int(parts[1])
+    except ValueError:
+        return False
+    return exp >= time.time()
 
 
 def normalize(name: str) -> str:
@@ -423,10 +442,17 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(data)))
         self.send_header("Cache-Control", "no-store")
+        secure = ""
+        host = (self.headers.get("X-Forwarded-Proto") or "").lower()
+        if host == "https" or __import__("os").environ.get("RENDER"):
+            secure = "; Secure"
         if token:
-            self.send_header("Set-Cookie", f"av_admin={token}; Path=/; HttpOnly; SameSite=Lax; Max-Age={SESSION_TTL}")
+            self.send_header(
+                "Set-Cookie",
+                f"av_admin={token}; Path=/; HttpOnly; SameSite=Lax; Max-Age={SESSION_TTL}{secure}",
+            )
         if token == "":
-            self.send_header("Set-Cookie", "av_admin=; Path=/; Max-Age=0")
+            self.send_header("Set-Cookie", f"av_admin=; Path=/; Max-Age=0{secure}")
         self.end_headers()
         self.wfile.write(data)
 
