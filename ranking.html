@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Ranking CIJJ — Actus Verum Team</title>
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" alt="Actus Verum Team" />
+        <span class="logo-type">Actus Verum Team<small>Brazilian Jiu-Jitsu</small></span>
+      </a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/fotos.html">Fotos</a>
+        <a href="/produtos.html">Produtos</a>
+        <a href="/horarios.html">Horário de treinos</a>
+        <a href="/alunos.html">Alunos</a>
+        <a class="active" href="/ranking.html">Ranking</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap section">
+    <div class="rank-head">
+      <div>
+        <h2>Ranking</h2>
+        <p class="hint">Desempenho da equipe no Circuito Interior de Jiu-Jitsu.</p>
+      </div>
+      <button class="btn ghost" id="refresh">Atualizar ranking</button>
+    </div>
+    <div id="status" class="hint"></div>
+
+    <div class="rank-cols">
+      <section class="card rank-wrap">
+        <h3>Rank Top Pontuadores</h3>
+        <p class="hint">Soma dos pontos de todas as categorias, do maior para o menor.</p>
+        <div id="top"></div>
+      </section>
+      <section class="card rank-wrap">
+        <h3>Rank por categoria no CIJJ</h3>
+        <p class="hint">Posição oficial de cada aluno na categoria em que compete.</p>
+        <div id="board"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+  <script>RankingPage.init();</script>
+  <script src="/mobile.js"></script>
+</body>
+</html>

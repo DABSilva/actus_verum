@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Alunos — Actus Verum Team</title>
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" alt="Actus Verum Team" />
+        <span class="logo-type">Actus Verum Team<small>Brazilian Jiu-Jitsu</small></span>
+      </a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/fotos.html">Fotos</a>
+        <a href="/produtos.html">Produtos</a>
+        <a href="/horarios.html">Horário de treinos</a>
+        <a class="active" href="/alunos.html">Alunos</a>
+        <a href="/ranking.html">Ranking</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap section">
+    <h2>Alunos da academia</h2>
+    <p class="hint">Atletas cadastrados na Actus Verum Team.</p>
+    <div class="grid cards" id="equipe"></div>
+  </main>
+  <script src="/app.js"></script>
+  <script>EquipePage.init();</script>
+  <script src="/mobile.js"></script>
+</body>
+</html>

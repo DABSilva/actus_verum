@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Horários — Admin Actus Verum</title>
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" alt="Actus Verum Team" />
+        <span class="logo-type">Actus Verum Team<small>Administrador</small></span>
+      </a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/horarios.html">Horário de treinos</a>
+        <a href="/alunos.html">Alunos</a>
+        <a href="/ranking.html">Ranking</a>
+        <a class="active" href="/admin.html">Admin</a>
+        <a href="#" id="sair">Sair</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap section">
+    <nav class="submenu">
+      <a href="/admin.html">Cadastro</a>
+      <a href="/admin-lista.html">Lista de alunos</a>
+      <a class="active" href="/admin-horarios.html">Horários</a>
+    </nav>
+    <h2>Cadastro de horários</h2>
+    <p class="hint">Esses cards aparecem no menu Horário de treinos.</p>
+    <div class="grid" style="grid-template-columns: minmax(280px, 1fr) 1.2fr; gap: 24px;">
+      <form class="card stack" id="form-horario">
+        <label>Idade
+          <input name="idade" required placeholder="Ex.: 5 a 12 anos" />
+        </label>
+        <label>Horário
+          <input name="horario" required placeholder="Ex.: 19h" />
+        </label>
+        <button class="btn" type="submit">Cadastrar horário</button>
+        <div id="msg-horario"></div>
+      </form>
+      <div class="list" id="lista-horarios"></div>
+    </div>
+  </main>
+  <script src="/app.js"></script>
+  <script>
+    document.getElementById("sair").addEventListener("click", async (ev) => {
+      ev.preventDefault();
+      await api("/api/logout", { method: "POST", body: "{}" });
+      location.href = "/login.html";
+    });
+    HorariosAdmin.init();
+  </script>
+  <script src="/mobile.js"></script>
+</body>
+</html>

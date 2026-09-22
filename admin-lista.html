@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Lista de alunos — Admin Actus Verum</title>
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" alt="Actus Verum Team" />
+        <span class="logo-type">Actus Verum Team<small>Administrador</small></span>
+      </a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/horarios.html">Horário de treinos</a>
+        <a href="/alunos.html">Alunos</a>
+        <a href="/ranking.html">Ranking</a>
+        <a class="active" href="/admin.html">Admin</a>
+        <a href="#" id="sair">Sair</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap section">
+    <nav class="submenu">
+      <a href="/admin.html">Cadastro</a>
+      <a class="active" href="/admin-lista.html">Lista de alunos</a>
+      <a href="/admin-horarios.html">Horários</a>
+    </nav>
+    <div class="rank-head">
+      <div>
+        <h2>Lista de alunos</h2>
+        <p class="hint">Dados completos da academia. Ordene a tabela e exporte para Excel.</p>
+      </div>
+      <button class="btn" id="exportar">Exportar Excel</button>
+    </div>
+    <div class="sort-bar">
+      <span class="meta">Ordenar por</span>
+      <button class="btn ghost sort-btn active" data-ordem="nome">Nome</button>
+      <button class="btn ghost sort-btn" data-ordem="faixa">Cor da faixa</button>
+      <button class="btn ghost sort-btn" data-ordem="idade">Idade</button>
+      <button class="btn ghost sort-btn" data-ordem="peso">Peso</button>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table" id="tabela">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Idade</th>
+            <th>Peso</th>
+            <th>Faixa</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+  <script src="/app.js"></script>
+  <script>ListaAdmin.init();</script>
+  <script src="/mobile.js"></script>
+</body>
+</html>

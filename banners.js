@@ -1,0 +1,1 @@
+/* banners only on homepage HTML */
